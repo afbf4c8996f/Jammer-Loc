@@ -1,0 +1,35 @@
+name: MCVWP
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - numpy-base=2.2.4
+  - openssl=3.5.0
+  - packaging=24.2
+  - pandas=2.2.3
+  - py-xgboost=2.1.1
+  - pydantic=2.10.3
+  - pydantic-core=2.27.1
+  - pygments=2.19.1
+  - scikit-learn=1.6.1
+  - scipy=1.15.2
+  - seaborn=0.13.2
+  - setuptools=72.1.0
+  - shap=0.47.2
+  - statsmodels=0.14.4
+  - sympy=1.13.3
+  - tensorboard=2.19.0
+  - tensorboard-data-server=0.7.0
+  - torchinfo=1.8.0
+  - torchmetrics=1.2.1
+  - torchtriton=3.1.0
+  - torchvision=0.20.1
+  - tqdm=4.67.1
+  - umap-learn=0.5.7
+  - xgboost=2.1.1
+  - pip:
+      - scikit-image==0.24.0
+      - shapely==2.0.6
