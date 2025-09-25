@@ -1,0 +1,76 @@
+# ─────────────────────────  CONFIG.YAML  ─────────────────────────
+
+model:
+  # --- Core routing switches ------------------------------------
+  task: classification           # classification | regression
+  input_mode: actual          # actual | rate
+  framework: ml           # dl | ml      (used only when task = classification)
+  scale_regression: true     # if false: skip StandardScaler in regression branch
+  
+
+  # --- Algorithm selections  ------------------------------------
+  # ML classifiers       ⮕ valid: xgboost, random_forest, knn (or 'all')
+  algorithms: ['random_forest']
+
+  # ML regressors        ⮕ valid: xgboost, random_forest (or 'all')
+  #   used when task=regression & framework=ml
+  #   (config_loader does not strictly enforce this set, but train_val_regression_models will)
+  regressors: ['random_forest']  # you can optionally mirror algorithms here
+
+  # DL classification models   ⮕ valid: simple_nn, convmixer1d, transformer_tabular (or 'all')
+  dl_models: ['all']
+
+  # DL regression models       ⮕ valid: simple_nn, convmixer1d, transformer_tabular, (or 'all')
+  dl_regressors: ['convmixer1d']
+
+  # --- Hyper-parameters for DL ---------------------------------
+  # 'name' must be one from the above lists, chosen per task & framework
+  name: convmixer1d
+
+  # input_size is inferred at runtime; we can leave null here
+  input_size: null
+
+  # hidden_size is the base width for all DL architectures
+  hidden_size: 32
+
+  # num_classes is only used for classification heads
+  #   • For classification: number of output logits
+  #   • For regression-dl: num_outputs is forced to 2 internally
+  num_classes: null  
+
+  # --- Pre-processing flags ------------------------------------
+  use_receiver_id: false
+  one_hot_receiver_id: false
+  encode_event_rto: true     # classification only
+
+  # --- Localization threshold (regression) ---------------------
+  threshold_cm: 30            # for the "fraction within N cm" metric
+
+  # Only for the SSL setup
+  mask_ratio: 0.5
+  pre_nhead: 4
+  pre_layers: 4
+
+fine_tune_epochs: 200 # used for the Fine tuning stage
+training:
+  num_epochs: 20 # 20 for ADV
+  learning_rate: 0.001
+  batch_size: 256
+  patience: 10 # 10 for ADV SSL is currently logged against this not fine_tune_epochs
+  scheduler_monitor: mse
+  
+
+data:
+  path: /path/to/the/Dataset
+  coords_xlsx: /path/to/the/Positions.xlsx
+  external_test_path: /path/to/the/test_setup
+  exclude_positions: ["0", "8", "70", "78", "Turtlebot"]
+  parse_cir: false  # set to true only if you plan to extract CIR features
+  internal_parquet: data/processed_dataset.parquet
+  external_parquet: data/external_processed_dataset.parquet
+
+output:
+  directory: ./outputs/
+
+logging:
+  level: INFO

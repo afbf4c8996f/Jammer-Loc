@@ -1,0 +1,27 @@
+# config_coral.yaml
+
+model:
+  name: coral     
+  hidden_size: 64        # Width of ConvNeXt blocks
+  threshold_cm: 30         # For final evaluation metrics (e.g., fraction within 30 cm)
+
+training:
+  num_epochs: 50
+  learning_rate: 0.001
+  batch_size: 256
+  patience: 10 
+
+data:
+  path: /path/to/the/Dataset
+  coords_xlsx: /path/to/the/Positions.xlsx
+  external_test_path: /path/to/the/test_setup
+  exclude_positions: ["0", "8", "70", "78", "Turtlebot"]
+  parse_cir: false  # set to true only if you plan to extract CIR features
+  internal_parquet: data/processed_dataset.parquet
+  external_parquet: data/external_processed_dataset.parquet
+
+output:
+  directory: ./outputs/
+
+logging:
+  level: INFO
