@@ -59,7 +59,8 @@ Make sure you adjust the paths according to your project structure in the `confi
 ## Datasets
 
 Due to size constraints, the raw datasets are not included in this repository.  
-They can be downloaded from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17199560.svg)](https://doi.org/10.5281/zenodo.17199560).
-However, to facilitate immediate code execution, two Parquet files are provided in this repository for the source and target domains
+They can be downloaded from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17204242.svg)](https://doi.org/10.5281/zenodo.17204242).
+
+However, to facilitate immediate code execution, two Parquet files are provided in this repository for the source and target domains. The compressed NumPy array files (.npz), containing the data for domain alignment models, can be accessed through the link above.
 
 
