@@ -46,5 +46,10 @@ python main.py --config config.yaml
 ## Path Setup
 
 Make sure you adjust the paths according to your project structure in the `config.yaml` file.
-  
+
+## Raw Datasets
+
+Due to size constraints, the raw datasets are not included in this repository.  
+They can be downloaded from [Zenodo](https://zenodo.org/your-link-here).  
+Please follow the instructions in the paper or `config.yaml` to place the datasets in the correct location.
 
