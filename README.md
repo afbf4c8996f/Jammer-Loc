@@ -4,7 +4,7 @@
 
 # Jammer-Loc
 
-This repository accompanies the paper  
+This repository includes the code and the Dataset Link for the paper  
 **“Machine and Deep Learning for Indoor UWB Jammer Localization.”**
 
 ---
