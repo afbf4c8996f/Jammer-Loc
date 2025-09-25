@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="figures/positions_lab.jpg" alt="Jammer-Loc Figure" width="600"/>
+  <img src="figures/positions_lab.jpg" alt="Jammer-Loc Figure" width="400"/>
 </p>
 
 # Jammer-Loc
