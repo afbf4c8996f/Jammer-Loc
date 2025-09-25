@@ -52,7 +52,7 @@ File names for the domain alignment methods correspond directly to their respect
 ## Path Setup
 
 Make sure you adjust the paths according to your project structure in the `config.yaml` file.  
-Please follow the instructions in the paper or `config.yaml` to place the datasets in the correct location.
+
 
 ---
 
